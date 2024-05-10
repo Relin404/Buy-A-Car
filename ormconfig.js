@@ -21,11 +21,13 @@ switch (process.env.NODE_ENV) {
       migrationsRun: true,
     });
   case 'production':
-    // Object.assign(dbConfig, {
-    //   type: 'sqlite',
-    //   database: 'db.sqlite',
-    //   entities: ['**/*.entity.js'],
-    // });
+    Object.assign(dbConfig, {
+      type: 'postgres',
+      URL: process.env.DATABASE_URL,
+      migrationsRun: true,
+      entities: ['**/*.entity.js'],
+      rejectUnauthorized: false,
+    });
     break;
   default:
     throw new Error('Unknown environment');

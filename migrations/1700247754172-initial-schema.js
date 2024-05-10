@@ -5,7 +5,7 @@ module.exports = class initialSchema1700247754172 {
 
   async up(queryRunner) {
     await queryRunner.createTable(
-      new Tablee({
+      new Table({
         name: 'user',
         columns: [
           {
