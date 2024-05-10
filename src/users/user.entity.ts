@@ -6,6 +6,7 @@ import {
   AfterUpdate,
   AfterRemove,
   OneToMany,
+  BeforeRemove,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { Report } from '../reports/report.entity';
@@ -38,8 +39,13 @@ export class User {
     console.log(`Updated User with id ${this.id}, email ${this.email}`);
   }
 
+  @BeforeRemove()
+  logBeforeRemove() {
+    console.log(`Removing User with id ${this.id}, email ${this.email}`);
+  }
+
   @AfterRemove()
   logRemove() {
-    console.log(`Removed User with id ${this.id}, email ${this.email}`);
+    console.log(`Removed User successfully`);
   }
 }

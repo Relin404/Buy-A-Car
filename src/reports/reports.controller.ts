@@ -18,7 +18,9 @@ import { ReportDto } from './dtos/report.dto';
 import { ApproveReportDto } from './dtos/approve-report.dto';
 import { AdminGuard } from '../guards/admin.guard';
 import { GetEstimateDto } from './dtos/get-estimate.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Reports')
 @Controller('reports')
 export class ReportsController {
   constructor(private reportsService: ReportsService) {}
