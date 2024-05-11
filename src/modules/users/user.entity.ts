@@ -9,7 +9,7 @@ import {
   BeforeRemove,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import { Report } from '../reports/report.entity';
+import { Report } from '@modules/reports/report.entity';
 
 @Entity()
 export class User {

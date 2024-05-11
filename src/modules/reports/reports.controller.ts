@@ -8,17 +8,17 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { CreateReportDto } from './dtos/create-report.dto';
-import { ReportsService } from './reports.service';
-import { AuthGuard } from '../guards/auth.guard';
-import { CurrentUser } from '../users/decorators/current-user.decorator';
-import { User } from '../users/user.entity';
-import { Serialize } from '../interceptors/serialize.interceptor';
-import { ReportDto } from './dtos/report.dto';
-import { ApproveReportDto } from './dtos/approve-report.dto';
-import { AdminGuard } from '../guards/admin.guard';
-import { GetEstimateDto } from './dtos/get-estimate.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { CurrentUser } from '@common/decorators/current-user.decorator';
+import { AdminGuard } from '@common/guards/admin.guard';
+import { AuthGuard } from '@common/guards/auth.guard';
+import { Serialize } from '@common/interceptors/serialize.interceptor';
+import { ApproveReportDto } from '@modules/reports/dtos/approve-report.dto';
+import { CreateReportDto } from '@modules/reports/dtos/create-report.dto';
+import { GetEstimateDto } from '@modules/reports/dtos/get-estimate.dto';
+import { ReportDto } from '@modules/reports/dtos/report.dto';
+import { ReportsService } from '@modules/reports/reports.service';
+import { User } from '@modules/users/user.entity';
 
 @ApiTags('Reports')
 @Controller('reports')
