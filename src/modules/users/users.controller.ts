@@ -11,16 +11,16 @@ import {
   Session,
   UseGuards,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { Serialize } from '@common/interceptors/serialize.interceptor';
+import { CurrentUser } from '@common/decorators/current-user.decorator';
+import { AuthGuard } from '@common/guards/auth.guard';
+import { AuthService } from '@modules/auth/auth.service';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { UsersService } from './users.service';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UserDto } from './dtos/user.dto';
-import { Serialize } from '../interceptors/serialize.interceptor';
-import { AuthService } from './auth.service';
-import { CurrentUser } from './decorators/current-user.decorator';
+import { UsersService } from './users.service';
 import { User } from './user.entity';
-import { AuthGuard } from '../guards/auth.guard';
-import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Users')
 @Controller('auth')

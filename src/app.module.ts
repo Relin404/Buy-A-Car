@@ -2,12 +2,13 @@
 import { Module, ValidationPipe, MiddlewareConsumer } from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { ReportsModule } from './reports/reports.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmConfigService } from './config/typeorm.config';
+import { UsersModule } from '@modules/users/users.module';
+import { ReportsModule } from '@modules/reports/reports.module';
+import { AuthModule } from '@modules/auth/auth.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 const cookieSession = require('cookie-session');
 
 @Module({
@@ -39,6 +40,7 @@ const cookieSession = require('cookie-session');
     // }),
     UsersModule,
     ReportsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
